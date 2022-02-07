@@ -1,5 +1,5 @@
-# CODE REPLICABILITY FOR KDD 2022
-This section is specifically directed at the reviewers for KDD 2022. To replicate our results and use our simulator, follow these simple steps:
+# CODE REPRODUCIBILITY FOR KDD 2022
+This section is specifically directed at the reviewers for KDD 2022. To replicate our results and use our simulator, follow these simple steps. 
 ## Quick Version
 This list of steps is done assuming you are working on a machine that uses Python or Jupyter Notebook regularly and just want to replicate our results from Section 4.4. 
 1. Install Anaconda on the OS of your choice
@@ -44,7 +44,7 @@ If you want to add an allocation algorithm of your choice, create it in a ipynb 
 1. Open *RUN_SIMULATOR.ipynb* and type the following right after the last listed algorithm:
 ```
 % run ALGORITHM_FSL.ipynb              # Last line of called algorithms
-% run your_new_algorithms.ipynb        # Add in your own algorithm
+% run your_new_algorithm.ipynb        # Add in your own algorithm
 ```
 For your algorithm, don't forget to use the same global variables that were created in *config.ipynb* to represent the available computer resources during each simulation round. These variable names are also listed in a table in the following section. 
 
@@ -54,7 +54,7 @@ For your algorithm, don't forget to use the same global variables that were crea
 
 [comment]: <> (Test comment)
 
-# DNN Distributed Training Simulator 
+# DNN Distributed Training Simulator Overview
 DNN Distributed Training Simulator (DTS) is a tool used to compare the performance of various distributed training architectures for a user-specified Deep Neural Network (DNN). The tool allows the user to modify **any** of the following variables in the simulated network:
 
 | Variable       | Name in Code     | Unit     |
