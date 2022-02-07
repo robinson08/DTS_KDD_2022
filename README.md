@@ -22,7 +22,7 @@ This list of steps is done assuming you are working on a machine that uses Pytho
 ## Detailed version
 These steps apply if you are installing on a barebones machine OR want to modify the simulator params yourself to test it out.
 1. Install Anaconda on the OS of your choice
-2. **If you are installing on a barebones machine**, you will need the following essentials. Most machines already have these installed, but you can check by trying to run these commands. If they are already installed, the system will notify you. If not, the system will install the requirements. These are very general Python requirements, so **chances are that if you have been using Python or Jupyter Notebook regularly, these will already be installed in your system**. 
+2. **If you are installing on a barebones machine**, you will need the following essentials. Most machines already have these installed, but you can check by trying to run these commands. If they are already installed, the system will notify you. If not, the system will install the requirements. These are very general Python requirements, so **chances are that if you have been using Python or Jupyter Notebook regularly, these will already be installed in your system**. Since the following are not Conda-based commands, they are specific to Ubuntu machines. If your OS is not Ubuntu, simply use your equivalent commands:
    ```
    sudo apt-get install python-dev                 # Check if you have your Python header files installed
    pip install --upgrade setuptools                # Check if you have your pip upgrade tools up to date
