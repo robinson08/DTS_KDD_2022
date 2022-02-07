@@ -8,8 +8,11 @@ This list of steps is done assuming you are working on a machine that uses Pytho
    ```
    conda env create -f DTS.yml
    ```
-3. Download or clone our Git repository into a directory of your choice. 
-4. Activate the newly created Conda environment:
+3. Download or clone our Git repository into a directory of your choice:
+   ```
+   git clone https://github.com/robinson08/DTS_KDD_Test.git
+   ```
+5. Activate the newly created Conda environment:
    ```
    conda activate DTS
    ```
@@ -29,7 +32,10 @@ These steps apply if you are installing on a barebones machine OR want to modify
    ```
    conda env create -f DTS.yml
    ```
-4. Download or clone our Git repository into a directory of your choice. 
+4. Download or clone our Git repository into a directory of your choice:
+   ```
+   git clone https://github.com/robinson08/DTS_KDD_Test.git
+   ``` 
 5. Activate the newly created Conda environment:
    ```
    conda activate DTS
