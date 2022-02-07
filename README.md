@@ -1,9 +1,10 @@
 # CODE REPLICABILITY FOR KDD 2022
 This section is specifically directed at the reviewers for KDD 2022. To replicate our results and use our simulator, follow these simple steps:
 ## Quick Version
-This list of steps is done assuming you are working on a machine that uses Python or Jupyter Notebook regularly and just want to replicate our results from Section XX. 
+This list of steps is done assuming you are working on a machine that uses Python or Jupyter Notebook regularly and just want to replicate our results from Section 4.4. 
 1. Install Anaconda on the OS of your choice
-2. Download the DTS.yml file. Navigate to the directory where you downloaded it, and then create an exact copy of our development environment for you to run our simulator and modify its settings. To do so, simply use the following command:
+2. Download our DTS.yml file. This is the instruction file to have Anaconda create an exact copy of our environment on your machine, **regardless of your OS**. 
+3.  Navigate to the directory where you downloaded it and use the following command:
    ```
    conda env create -f DTS.yml
    ```
@@ -18,25 +19,25 @@ This list of steps is done assuming you are working on a machine that uses Pytho
 ## Detailed version
 These steps apply if you are installing on a barebones machine OR want to modify the simulator params yourself to test it out.
 1. Install Anaconda on the OS of your choice
-   1. **If you are installing on a barebones machine**, you will need the following essentials. Most machines already have these installed, but you can check by trying to run these commands. If they are already installed, the system will notify you. If not, the system will install the requirements. These are very general Python requirements, so **chances are that if you have been using Python or Jupyter Notebook regularly, these will already be installed in your system**. 
+2. **If you are installing on a barebones machine**, you will need the following essentials. Most machines already have these installed, but you can check by trying to run these commands. If they are already installed, the system will notify you. If not, the system will install the requirements. These are very general Python requirements, so **chances are that if you have been using Python or Jupyter Notebook regularly, these will already be installed in your system**. 
    ```
    sudo apt-get install python-dev                 # Check if you have your Python header files installed
    pip install --upgrade setuptools                # Check if you have your pip upgrade tools up to date
    sudo apt-get install build-essential            # Get essential files for building wheels when installing packages
    ```
-2. Download the DTS.yml file. Navigate to the directory where you downloaded it, and then create an exact copy of our development environment for you to run our simulator and modify its settings. To do so, simply use the following command:
+3. Download the DTS.yml file. Navigate to the directory where you downloaded it, and then create an exact copy of our development environment for you to run our simulator and modify its settings. To do so, simply use the following command:
    ```
    conda env create -f DTS.yml
    ```
-3. Download or clone our Git repository into a directory of your choice. 
-4. Activate the newly created Conda environment:
+4. Download or clone our Git repository into a directory of your choice. 
+5. Activate the newly created Conda environment:
    ```
    conda activate DTS
    ```
-5. You are now ready to run any of the provided Jupyter Notebook files and run our simulator!
-   - If you simply want to run it to replicate our results from Section X, open *RUN_SIMULATOR.ipynb* and click run all cells. 
-   - If you want to modify its parameters when running it to compare against a testbed, open *config*. This was used in Section XX. 
-   - When running it just to generate data and perform performance analyses, open *config_multiple.ipynb* and then Run All. This was used in Section XX.
+6. You are now ready to run any of the provided Jupyter Notebook files and run our simulator!
+   - If you simply want to run it to replicate our results from Section 4.4, open *RUN_SIMULATOR.ipynb* and click run all cells. 
+   - If you want to modify its parameters when running it to compare against a testbed, open *config*. This was used in Sections 4.2 and 4.3. 
+   - When running it just to generate data and perform performance analyses, open *config_multiple.ipynb* and then Run All. This was used in Section 4.4.
    
 ## Adding your own architectures and algorithms
 If you want to add an allocation algorithm of your choice, create it in a ipynb file, then do the following:
@@ -79,7 +80,7 @@ DNN Distributed Training Simulator (DTS) is a tool used to compare the performan
  Weights matrix | D_weights | GB |
  Individual sample size | batch_individual_file_size | GB |
  Batch size | batch_size | None |
- Batches per client | total_batches_XX* | None |
+ Batches per client | total_batches_* | None |
  Epochs | epochs | None |
  Maximum calculated paths | max_paths | None |
  Minimum Split | min_split | None |
