@@ -1,16 +1,42 @@
-# CODE REPRODUCIBILITY FOR KDD 2022
+# DISTRIBUTED TRAINING SIMULATOR (DTS): Estimating the Training Time of Distributed Deep Neural Networks
+Authors:
+- Wilfredo J. Robinson M., EURECOM, France, robinson@eurecom.fr
+- Maria A. Zuluaga, EURECOM, France, maria.zuluaga@eurecom.fr
+- Flavio Esposito, Saint Louis University, USA, flavio.esposito@slu.edu
+
+## CODE REPRODUCIBILITY FOR KDD 2022
 This section is specifically directed at the reviewers for KDD 2022. To replicate our results and use our simulator, follow these simple steps. 
-## Quick Version
+
+### Required Packages
+- **For DTS only**:
+   - python==3.7.10
+   - A Jupyter Notebook editor. Its main packages should at least meet the following versions:
+      –jupyter=1.0.0
+      –jupyter_client=6.1.12
+      –jupyter_console=6.4.0
+      –jupyter_core=4.7.1
+    - numpy==1.18.5
+    - pandas=1.3.1
+    - tqdm=4.61.2
+
+- **DTS + Testbed Implementation of DNNs**: 
+   If the user also wantsto reproduce our testbed results, then in addition to the ones neededsolely by DTS, the following packages will be required:
+   - pickleshare=0.7.5
+   - torch==1.4.0
+   - torchvision==0.5.0
+   - syft==0.2.9
+
+### (Optional) Rapid Installation for Anaconda Users
 This list of steps is done assuming you are working on a machine that uses Python or Jupyter Notebook regularly and just want to replicate our results from Section 4.4. 
-1. Install Anaconda on the OS of your choice, following the steps for each platform listed [here](https://docs.anaconda.com/anaconda/install/index.html). Anaconda is a widely used Python virtual environment manager. 
-2. Download our DTS.yml file. This is the instruction file to have Anaconda create an exact copy of our environment on your machine, **regardless of your OS**. 
+1. Install Anaconda [1] on the OS of your choice. Anaconda is a widely used Python virtual environment manager. 
+2. Download the DTS.yml file. This is the instruction file to have Anaconda create an exact copy of our environment on your machine, **regardless of your OS**. 
 3.  Navigate to the directory where you downloaded it and use the following command:
    ```
    conda env create -f DTS.yml
    ```
 3. Download or clone our Git repository into a directory of your choice:
    ```
-   git clone https://github.com/robinson08/DTS_KDD_Test.git
+   git clone https://github.com/robinson08/DTS_KDD_2022.git
    ```
 5. Activate the newly created Conda environment:
    ```
@@ -19,9 +45,9 @@ This list of steps is done assuming you are working on a machine that uses Pytho
 5. Open *RUN_SIMULATOR.ipynb* and run all cells. 
 
 
-## Detailed version
+### (Optional) Detailed Installation for Anaconda Users
 These steps apply if you are installing on a barebones machine OR want to modify the simulator params yourself to test it out.
-1. Install Anaconda on the OS of your choice, following the steps for each platform listed [here](https://docs.anaconda.com/anaconda/install/index.html). Anaconda is a widely used Python virtual environment manager. 
+1. Install Anaconda [1] on the OS of your choice. Anaconda is a widely used Python virtual environment manager. 
 2. **If you are installing on a barebones machine**, you will need the following essentials. Most machines already have these installed, but you can check by trying to run these commands. If they are already installed, the system will notify you. If not, the system will install the requirements. These are very general Python requirements, so **chances are that if you have been using Python or Jupyter Notebook regularly, these will already be installed in your system**. Since the following are not Conda-based commands, they are specific to Ubuntu machines. If your OS is not Ubuntu, simply use your equivalent commands:
    ```
    sudo apt-get install python-dev                 # Check if you have your Python header files installed
@@ -34,7 +60,7 @@ These steps apply if you are installing on a barebones machine OR want to modify
    ```
 4. Download or clone our Git repository into a directory of your choice:
    ```
-   git clone https://github.com/robinson08/DTS_KDD_Test.git
+   git clone https://github.com/robinson08/DTS_KDD_2022.git
    ``` 
 5. Activate the newly created Conda environment:
    ```
@@ -42,10 +68,10 @@ These steps apply if you are installing on a barebones machine OR want to modify
    ```
 6. You are now ready to run any of the provided Jupyter Notebook files and run our simulator!
    - If you simply want to run it to replicate our results from Section 4.4, open *RUN_SIMULATOR.ipynb* and click run all cells. 
-   - If you want to modify its parameters when running it to compare against a testbed, open *config*. This was used in Sections 4.2 and 4.3. 
+   - If you want to modify its parameters when running it to compare against a testbed, open *config.ipynb* and *queue_maker.ipynb* to modify the relevant parameters. This was used in Sections 4.2 and 4.3. 
    - When running it just to generate data and perform performance analyses, open *config_multiple.ipynb* and then Run All. This was used in Section 4.4.
    
-## Adding your own architectures and algorithms
+### Adding your own architectures and algorithms
 If you want to add an allocation algorithm of your choice, create it in a ipynb file, then do the following:
 1. Open *RUN_SIMULATOR.ipynb* and type the following right after the last listed algorithm:
 ```
@@ -57,10 +83,16 @@ For your algorithm, don't forget to use the same global variables that were crea
 2. Add your desired column names for the output CSVs in the file *Logger.ipynb*. 
 3. Open *RUN_SIMULTOR.ipynb* and run all the cells!
 
+### References
+[1]: Anaconda Software Distribution. (2020). Anaconda Documentation. Anaconda Inc. Retrieved from https://docs.anaconda.com/
+
 
 [comment]: <> (Test comment)
 
-# DNN Distributed Training Simulator Overview
+
+
+
+# Distributed Training Simulator (DTS) Overview
 DNN Distributed Training Simulator (DTS) is a tool used to compare the performance of various distributed training architectures for a user-specified Deep Neural Network (DNN). The tool allows the user to modify **any** of the following variables in the simulated network:
 
 | Variable       | Name in Code     | Unit     |
@@ -95,9 +127,7 @@ DNN Distributed Training Simulator (DTS) is a tool used to compare the performan
  
 ** *Replace XX with the architecture abbreviation of your choice (PL, FL, SL, PSL, FSL)*
 
-All of these variables can be modified in **config.ipynb**. Based on the user-specified variables (network conditions), the tool will then output the **fastest training time** and the accompanying **network graph** for the specified DNN. 
-
-
+All of these variables can be modified in **config.ipynb** and **queue_maker.ipynb**. Based on the user-specified variables (network conditions), the tool will then output the **fastest training time** and the accompanying **network graph** for the specified DNN. 
 
 ## Supported Distributed Training Architectures
 DTS currently supports 5 distributed training architectures:
